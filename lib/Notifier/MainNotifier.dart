@@ -10,11 +10,15 @@ class MainNotifier with ChangeNotifier {
   //   notify();
   // }
 
-  void setUserLocations(LocationData _latLong) {
+  void setUserLocations(
+      LocationData _latLong, List<dynamic> geoVal, String ssid) {
     if (locationList.length > 50) {
       locationList.clear();
     }
     _latLong.dateTime = DateTime.now();
+    _latLong.distance = geoVal[0];
+    _latLong.geoStat = geoVal[1];
+    _latLong.ssid = ssid;
     locationList.insert(0, _latLong);
     notify();
   }
