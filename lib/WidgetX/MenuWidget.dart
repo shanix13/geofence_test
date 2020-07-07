@@ -17,7 +17,7 @@ class MenuWidget extends StatelessWidget {
             topLeft: const Radius.circular(20.0),
             topRight: const Radius.circular(20.0),
           ),
-          color: Colors.grey[900],
+          color: Colors.teal[400],
           boxShadow: [
             BoxShadow(blurRadius: 10, color: Colors.black.withOpacity(0.5))
           ]),
@@ -31,7 +31,7 @@ class MenuWidget extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 50, vertical: 5),
               //curve: Curves.easeIn,
               duration: Duration(milliseconds: 300),
-              tabBackgroundColor: Colors.blue[800],
+              tabBackgroundColor: Colors.indigoAccent,
               tabs: [
                 GButton(
                   icon: Icons.home,

@@ -16,6 +16,7 @@ class _RootViewState extends State<RootView> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+
     pages = [
       MainView(),
       LogView(),

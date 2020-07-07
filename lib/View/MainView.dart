@@ -22,24 +22,38 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Consumer<MainNotifier>(builder: (_, data, child) {
-      return Container(
-        child: Center(
-          child: Column(
+      return Scaffold(
+        appBar: AppBar(
+          title: Row(
             children: <Widget>[
-              Divider(
-                height: 200,
+              Icon(Icons.gps_not_fixed),
+              SizedBox(
+                width: 20,
               ),
-              Text(
-                data.latLong,
-                style: TextStyle(color: Colors.red),
-              ),
-              RaisedButton(
-                child: Text("Request Permissions"),
-                onPressed: () {
-                  mc.getLocation();
-                },
-              ),
+              Text("GeoX")
             ],
+          ),
+          backgroundColor: Colors.teal,
+        ),
+        body: Container(
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Divider(
+                  height: 200,
+                ),
+                Text(
+                  data.latLong,
+                  style: TextStyle(color: Colors.red),
+                ),
+                RaisedButton(
+                  child: Text("Request Permissions"),
+                  onPressed: () {
+                    mc.getLocation();
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       );
