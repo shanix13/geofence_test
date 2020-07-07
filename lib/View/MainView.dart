@@ -33,6 +33,17 @@ class _MainViewState extends State<MainView> {
               Text("GeoX")
             ],
           ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                mc.openSettings(context);
+              },
+            ),
+            SizedBox(
+              width: 10,
+            )
+          ],
           backgroundColor: Colors.teal,
         ),
         body: Container(

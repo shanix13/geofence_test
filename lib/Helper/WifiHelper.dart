@@ -15,6 +15,7 @@ class WifiHelper {
   }
 
   String getSSID() {
+    initialize();
     var ssid = _wifiObject.ssid.replaceAll("\"", "");
     return ssid;
   }
