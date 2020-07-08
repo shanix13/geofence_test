@@ -1,8 +1,15 @@
-# geofence_test
 
-# version v1.0.0+1
 
-A Geofence test app
+# Description
+- A geofence application developed using flutter
+
+| Home  | Log |Map Select |Settings|
+| ------------- | ------------- |------------- | ----------|
+| <img src="https://user-images.githubusercontent.com/13599154/86922185-d69e3300-c15e-11ea-9727-1706b57c95f2.png" width="200" height="400">  | <img src="https://user-images.githubusercontent.com/13599154/86926147-511d8180-c164-11ea-9a67-d3159514b88a.png" width="200" height="400">  |<img src="https://user-images.githubusercontent.com/13599154/86926178-58448f80-c164-11ea-99bf-34a4a6da846f.png" width="200" height="400">  |<img src="https://user-images.githubusercontent.com/13599154/86926239-685c6f00-c164-11ea-8c5c-e3d434aa4580.png" width="200" height="400">
+
+
+
+
 
 ## Getting Started
 
