@@ -37,7 +37,7 @@ class _MapLocationState extends State<MapLocation> with StyleX {
     teLocationController.text =
         "${markerLat.toStringAsFixed(4)},${markerLong.toStringAsFixed(4)}";
 
-    radius = cfg.Config.geofenceList.radius ??= 0;
+    radius = cfg.Config.geofenceList.rad;
 
     teRadius.text = radius.toString();
     _center = LatLng(cfg.Config.geofenceList.lat, cfg.Config.geofenceList.lng);

@@ -46,6 +46,9 @@ class Geofencer {
               1000,
         );
         var ssid = await wifi.getSSID();
+        cfg.Config.currentLat = location.result.locations[0].latitude;
+        cfg.Config.currentLng = location.result.locations[0].longitude;
+
         var geoVal = await checkGeofence(location.result.locations[0].latitude,
             location.result.locations[0].longitude, ssid);
         provider.setUserLocations(location, geoVal, ssid);
@@ -57,17 +60,6 @@ class Geofencer {
     }
   }
 
-  void getUserLocation() {}
-
-  void addGeoFence() {
-    GeofenceModel gfm = new GeofenceModel();
-    gfm.lat = 5.3864;
-    gfm.lng = 100.3081;
-    gfm.name = "GeoFence1";
-    gfm.ssid = "X-WIFI";
-    cfg.Config.geofenceList = gfm;
-  }
-
   Future<List> checkGeofence(
       double curretLat, double currentLng, String ssid) async {
     cfg.geoStat geoStat;
@@ -75,13 +67,14 @@ class Geofencer {
     var lng = cfg.Config.geofenceList.lng;
     double distanceFromFence = await geoLoc.Geolocator()
         .distanceBetween(lat, lng, curretLat, currentLng);
-    if (distanceFromFence <= cfg.Config.geoFenceRadius ||
+
+    if (distanceFromFence <= cfg.Config.geofenceList.rad ||
         ssid == cfg.Config.geofenceList.ssid) {
       geoStat = cfg.geoStat.inside;
     } else {
       geoStat = cfg.geoStat.outside;
     }
-    print(distanceFromFence);
+    cfg.Config.currenGeoStat = geoStat;
     return [distanceFromFence, geoStat];
   }
 }

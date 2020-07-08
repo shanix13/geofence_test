@@ -1,3 +1,4 @@
+import 'package:geofence_test/Controller/MainController.dart';
 import 'package:geofence_test/Helper/Config.dart' as cfg;
 import 'package:flutter/material.dart';
 import 'package:geofence_test/View/LogView.dart';
@@ -11,12 +12,13 @@ class RootView extends StatefulWidget {
 
 class _RootViewState extends State<RootView> with WidgetsBindingObserver {
   static dynamic pages = [];
-
+  MainController mc = new MainController();
+  bool initialized = false;
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-
+    getConfiguration();
     pages = [
       MainView(),
       LogView(),
@@ -48,14 +50,24 @@ class _RootViewState extends State<RootView> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return new WillPopScope(
         onWillPop: _onWillPop,
-        child: Scaffold(
-            backgroundColor: Colors.grey[100],
-            body: pages[cfg.Config.selectedIndex],
-            bottomNavigationBar: MenuWidget(updateBody)));
+        child: initialized == false
+            ? CircularProgressIndicator()
+            : Scaffold(
+                backgroundColor: Colors.grey[100],
+                body: pages[cfg.Config.selectedIndex],
+                bottomNavigationBar: MenuWidget(updateBody)));
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {}
+
+  Future<void> getConfiguration() async {
+    print("Get Configuration");
+    await mc.getConfiguration();
+
+    initialized = true;
+    setState(() {});
+  }
 
   void updateBody(int index) {
     cfg.Config.selectedIndex = index;

@@ -7,7 +7,13 @@ class Config {
   //TODO add list for multi geo
   //static List<GeofenceModel> geofenceList = new List();
   static GeofenceModel geofenceList = new GeofenceModel();
-  static double geoFenceRadius = 10;
+  //static double geoFenceRadius = 10;
+
+  static double currentLat = 0;
+
+  static double currentLng = 0;
+
+  static geoStat currenGeoStat;
 }
 
 enum geoStat { enter, exit, dwell, inside, outside }
