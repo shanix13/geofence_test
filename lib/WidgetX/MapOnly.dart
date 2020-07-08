@@ -35,6 +35,8 @@ class _MapOnlyState extends State<MapOnly> with StyleX {
   Widget build(BuildContext context) {
     if (cfg.Config.currenGeoStat == cfg.geoStat.inside) {
       geofenceColor = Colors.greenAccent.withOpacity(0.5);
+    } else if (cfg.Config.currenGeoStat == cfg.geoStat.outside) {
+      geofenceColor = Colors.redAccent.withOpacity(0.5);
     }
     drawCircle(cfg.Config.geofenceList.lat, cfg.Config.geofenceList.lng);
     return Container(
@@ -56,7 +58,6 @@ class _MapOnlyState extends State<MapOnly> with StyleX {
           target: _center,
           zoom: 11.0,
         ),
-        markers: {marker1},
       ),
     );
   }

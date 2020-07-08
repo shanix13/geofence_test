@@ -31,13 +31,19 @@ class SharedPref {
   Future<void> saveGeofence(
       double lat, double lng, double radius, String ssid, String name) async {
     prefs = await SharedPreferences.getInstance();
-    List<String> value = new List();
-    value.add(lat.toString());
-    value.add(lng.toString());
-    value.add(radius.toString());
-    value.add(ssid);
-    value.add(name);
+    List<String> temp = new List();
+    temp.add(lat.toString());
+    temp.add(lng.toString());
+    temp.add(radius.toString());
+    temp.add(ssid);
+    temp.add(name);
 
-    await prefs.setStringList(_geofenceList, value);
+    cfg.Config.geofenceList.lat = double.parse(temp[0]);
+    cfg.Config.geofenceList.lng = double.parse(temp[1]);
+    cfg.Config.geofenceList.rad = double.parse(temp[2]);
+    cfg.Config.geofenceList.ssid = temp[3];
+    cfg.Config.geofenceList.name = temp[4];
+
+    await prefs.setStringList(_geofenceList, temp);
   }
 }

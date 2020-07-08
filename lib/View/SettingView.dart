@@ -88,7 +88,7 @@ class _SettingViewState extends State<SettingView> with StyleX {
                 ],
               )),
           trailing: Container(
-            width: 60,
+            width: 100,
             child: Row(
               children: <Widget>[
                 iconButtonX(
@@ -122,7 +122,7 @@ class _SettingViewState extends State<SettingView> with StyleX {
                 ],
               )),
           trailing: Container(
-            width: 70,
+            width: 100,
             child: Row(
               children: <Widget>[
                 iconButtonX(

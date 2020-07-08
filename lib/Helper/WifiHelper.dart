@@ -16,6 +16,9 @@ class WifiHelper {
 
   Future<String> getSSID() async {
     await initialize();
+    if (_wifiObject == null) {
+      return "";
+    }
     var ssid = _wifiObject.ssid.replaceAll("\"", "");
     return ssid;
   }

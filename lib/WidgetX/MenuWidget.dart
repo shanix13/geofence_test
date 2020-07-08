@@ -27,6 +27,7 @@ class MenuWidget extends StatelessWidget {
           child: GNav(
               gap: 20,
               activeColor: Colors.white,
+              color: Colors.grey[400],
               iconSize: 24,
               padding: EdgeInsets.symmetric(horizontal: 50, vertical: 5),
               //curve: Curves.easeIn,
@@ -35,7 +36,7 @@ class MenuWidget extends StatelessWidget {
               tabs: [
                 GButton(
                   icon: Icons.home,
-                  text: 'Dashboard',
+                  text: 'Home',
                   textStyle: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
