@@ -4,7 +4,9 @@ class Config {
   static int currentIndex = 0;
   static int selectedIndex = 0;
   static bool trackingStart = false;
-  static Map<String, GeofenceModel> geofenceList = new Map();
+  //TODO add list for multi geo
+  //static List<GeofenceModel> geofenceList = new List();
+  static GeofenceModel geofenceList = new GeofenceModel();
   static double geoFenceRadius = 10;
 }
 

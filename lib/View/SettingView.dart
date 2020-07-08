@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geofence_test/Helper/WifiHelper.dart';
 import 'package:geofence_test/WidgetX/StyleX.dart';
 
 class SettingView extends StatefulWidget {
@@ -26,7 +27,8 @@ class _SettingViewState extends State<SettingView> with StyleX {
       body: ListView(children: <Widget>[
         Divider(),
         ListTile(
-          title: Text("Enter Wifi SSID"),
+          title: Text("Enter Wifi SSID or Get"),
+          dense: true,
           subtitle: Container(
               height: 100,
               child: Column(
@@ -38,17 +40,23 @@ class _SettingViewState extends State<SettingView> with StyleX {
                 ],
               )),
           trailing: Container(
-            width: 60,
-            child: Column(
+            width: 100,
+            child: Row(
               children: <Widget>[
-                Text("Save"),
-                Icon(Icons.save),
+                iconButtonX(
+                    label: "GET SSID",
+                    icon: Icons.wifi_tethering,
+                    callback: getDeviceSSID),
+                SizedBox(
+                  width: 20,
+                ),
+                iconButtonX(
+                    label: "SAVE", icon: Icons.save, callback: getDeviceSSID),
               ],
             ),
           ),
           leading: Column(
             children: <Widget>[
-              Icon(Icons.wifi, color: Colors.grey),
               Icon(Icons.wifi, color: Colors.grey),
             ],
           ),
@@ -56,5 +64,29 @@ class _SettingViewState extends State<SettingView> with StyleX {
         ),
       ]),
     );
+  }
+
+  Future<void> getDeviceSSID() async {
+    WifiHelper wifi = new WifiHelper();
+    teSSID.text = await wifi.getSSID();
+  }
+
+  Widget iconButtonX({String label, IconData icon, Function callback}) {
+    return InkWell(
+        child: Column(
+          children: <Widget>[
+            Text(
+              label,
+              style: normalTextStyle,
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Icon(icon)
+          ],
+        ),
+        onTap: () {
+          callback();
+        });
   }
 }

@@ -4,8 +4,8 @@ mixin StyleX {
   var workerTextStyle =
       TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.w500);
 
-  var infoTextStyle =
-      TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.w400);
+  var normalTextStyle =
+      TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.w400);
   var tabTextStyle =
       TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500);
   var infoValueTextStyle =
